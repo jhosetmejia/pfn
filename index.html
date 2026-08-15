@@ -4,461 +4,487 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PFN — Promotora de Artes Marciales Mixtas</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A0A0B'/%3E%3Ctext x='50' y='70' font-size='62' font-family='Arial,sans-serif' font-weight='900' fill='%23C4302B' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#0A0A0B;
-    --surface:#141416;
-    --surface-2:#1B1B1E;
-    --ink:#F2EFE9;
-    --ink-dim:#9C9691;
-    --line:#2A2A2D;
-    --red:#C4302B;
-    --red-dim:#7A1F1C;
-    --gold:#A6A6AB;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--bg);
-    color:var(--ink);
-    font-family:'Barlow', sans-serif;
-    line-height:1.5;
-    overflow-x:hidden;
-  }
-  h1,h2,h3{font-family:'Anton', sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.5px;}
-  .eyebrow{
-    font-family:'Barlow Condensed', sans-serif;
-    font-weight:600;
-    letter-spacing:0.35em;
-    text-transform:uppercase;
-    font-size:0.78rem;
-    color:var(--red);
-  }
-  a{color:inherit;}
-  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
-  @media (min-width:768px){ .wrap{padding:0 48px;} }
+:root{
+--bg:#0A0A0B;
+--surface:#141416;
+--surface-2:#1B1B1E;
+--ink:#F2EFE9;
+--ink-dim:#9C9691;
+--line:#2A2A2D;
+--red:#C4302B;
+--red-dim:#7A1F1C;
+--gold:#A6A6AB;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+background:var(--bg);
+color:var(--ink);
+font-family:'Barlow', sans-serif;
+line-height:1.5;
+overflow-x:hidden;
+}
+h1,h2,h3{font-family:'Anton', sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.5px;}
+.eyebrow{
+font-family:'Barlow Condensed', sans-serif;
+font-weight:600;
+letter-spacing:0.35em;
+text-transform:uppercase;
+font-size:0.78rem;
+color:var(--red);
+}
+a{color:inherit;}
+.wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+@media (min-width:768px){ .wrap{padding:0 48px;} }
 
-  /* ===== NAV ===== */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(10,10,11,0.88);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav{display:flex; align-items:center; justify-content:space-between; padding:16px 24px;}
-  @media (min-width:768px){ .nav{padding:16px 48px;} }
-  .logo{font-family:'Anton', sans-serif; font-size:1.4rem; letter-spacing:1px;}
-  .logo span{color:var(--red);}
-  .nav-cta{
-    font-family:'Barlow Condensed', sans-serif;
-    font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
-    font-size:0.85rem;
-    background:var(--red); color:var(--ink);
-    padding:10px 20px; text-decoration:none;
-    border:1px solid var(--red);
-    transition:background 0.2s, color 0.2s;
-  }
-  .nav-cta:hover{background:transparent; color:var(--red);}
+/* ===== NAV ===== */
+header{
+position:sticky; top:0; z-index:50;
+background:rgba(10,10,11,0.88);
+backdrop-filter:blur(8px);
+border-bottom:1px solid var(--line);
+}
+.nav{display:flex; align-items:center; justify-content:space-between; padding:16px 24px;}
+@media (min-width:768px){ .nav{padding:16px 48px;} }
+.logo{font-family:'Anton', sans-serif; font-size:1.4rem; letter-spacing:1px;}
+.logo span{color:var(--red);}
+.nav-cta{
+font-family:'Barlow Condensed', sans-serif;
+font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
+font-size:0.85rem;
+background:var(--red); color:var(--ink);
+padding:10px 20px; text-decoration:none;
+border:1px solid var(--red);
+transition:background 0.2s, color 0.2s;
+}
+.nav-cta:hover{background:transparent; color:var(--red);}
 
-  /* ===== HERO ===== */
-  .hero{
-    position:relative;
-    padding:96px 0 88px;
-    overflow:hidden;
-    border-bottom:1px solid var(--line);
-  }
-  .hero::before{
-    content:"";
-    position:absolute; top:0; right:-10%; width:70%; height:220%;
-    background:linear-gradient(100deg, transparent 42%, var(--red-dim) 42.4%, var(--red-dim) 44%, transparent 44.4%,
-      transparent 47%, var(--red) 47.4%, var(--red) 49%, transparent 49.4%);
-    transform:rotate(8deg);
-    opacity:0.55;
-    pointer-events:none;
-  }
-  .hero-inner{position:relative; z-index:2; max-width:760px;}
-  .hero h1{
-    font-size:clamp(2.6rem, 7vw, 5rem);
-    line-height:0.96;
-    margin:18px 0 22px;
-  }
-  .hero h1 em{font-style:normal; color:var(--red);}
-  .hero p.lead{
-    font-size:1.15rem;
-    color:var(--ink-dim);
-    max-width:560px;
-    margin-bottom:36px;
-  }
-  .hero-actions{display:flex; flex-wrap:wrap; gap:14px;}
-  .btn{
-    display:inline-flex; align-items:center; gap:10px;
-    font-family:'Barlow Condensed', sans-serif;
-    font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
-    font-size:0.95rem;
-    padding:15px 28px;
-    text-decoration:none;
-    border:1px solid var(--ink);
-    transition:all 0.2s;
-  }
-  .btn-primary{background:var(--red); border-color:var(--red); color:var(--ink);}
-  .btn-primary:hover{background:transparent; color:var(--red);}
-  .btn-ghost{color:var(--ink);}
-  .btn-ghost:hover{background:var(--ink); color:var(--bg);}
+/* ===== HERO ===== */
+.hero{
+position:relative;
+padding:96px 0 88px;
+overflow:hidden;
+border-bottom:1px solid var(--line);
+}
+.hero::before{
+content:"";
+position:absolute; top:0; right:-10%; width:70%; height:220%;
+background:linear-gradient(100deg, transparent 42%, var(--red-dim) 42.4%, var(--red-dim) 44%, transparent 44.4%,
+transparent 47%, var(--red) 47.4%, var(--red) 49%, transparent 49.4%);
+transform:rotate(8deg);
+opacity:0.55;
+pointer-events:none;
+}
+.hero-inner{position:relative; z-index:2; max-width:760px;}
+.hero h1{
+font-size:clamp(2.6rem, 7vw, 5rem);
+line-height:0.96;
+margin:18px 0 22px;
+}
+.hero h1 em{font-style:normal; color:var(--red);}
+.hero p.lead{
+font-size:1.15rem;
+color:var(--ink-dim);
+max-width:560px;
+margin-bottom:36px;
+}
+.hero-actions{display:flex; flex-wrap:wrap; gap:14px;}
+.btn{
+display:inline-flex; align-items:center; gap:10px;
+font-family:'Barlow Condensed', sans-serif;
+font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+font-size:0.95rem;
+padding:15px 28px;
+text-decoration:none;
+border:1px solid var(--ink);
+transition:all 0.2s;
+}
+.btn-primary{background:var(--red); border-color:var(--red); color:var(--ink);}
+.btn-primary:hover{background:transparent; color:var(--red);}
+.btn-ghost{color:var(--ink);}
+.btn-ghost:hover{background:var(--ink); color:var(--bg);}
 
-  .hero-stats{
-    display:grid; grid-template-columns:repeat(3,1fr);
-    gap:0; margin-top:64px; max-width:640px;
-    border-top:1px solid var(--line);
-  }
-  .hero-stats div{padding:20px 18px 0; border-right:1px solid var(--line);}
-  .hero-stats div:last-child{border-right:none;}
-  .hero-stats strong{display:block; font-family:'Anton'; font-size:1.9rem; color:var(--gold);}
-  .hero-stats span{font-size:0.82rem; color:var(--ink-dim); font-family:'Barlow Condensed'; letter-spacing:0.05em; text-transform:uppercase;}
+.hero-stats{
+display:grid; grid-template-columns:repeat(3,1fr);
+gap:0; margin-top:64px; max-width:640px;
+border-top:1px solid var(--line);
+}
+.hero-stats div{padding:20px 18px 0; border-right:1px solid var(--line);}
+.hero-stats div:last-child{border-right:none;}
+.hero-stats strong{display:block; font-family:'Anton'; font-size:1.9rem; color:var(--gold);}
+.hero-stats span{font-size:0.82rem; color:var(--ink-dim); font-family:'Barlow Condensed'; letter-spacing:0.05em; text-transform:uppercase;}
 
-  /* ===== SECTION SHARED ===== */
-  section{padding:88px 0;}
-  .section-head{max-width:620px; margin-bottom:56px;}
-  .section-head h2{font-size:clamp(1.9rem, 4vw, 2.8rem); margin-top:10px; line-height:1.02;}
-  .section-head p{color:var(--ink-dim); margin-top:16px; font-size:1.02rem;}
-  .divider{border:none; border-top:1px solid var(--line);}
+/* ===== SECTION SHARED ===== */
+section{padding:88px 0;}
+.section-head{max-width:620px; margin-bottom:56px;}
+.section-head h2{font-size:clamp(1.9rem, 4vw, 2.8rem); margin-top:10px; line-height:1.02;}
+.section-head p{color:var(--ink-dim); margin-top:16px; font-size:1.02rem;}
+.divider{border:none; border-top:1px solid var(--line);}
 
-  /* ===== PROMOTORA ===== */
-  .promotora{background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .promo-grid{display:grid; grid-template-columns:1fr; gap:28px;}
-  @media (min-width:820px){ .promo-grid{grid-template-columns:1.1fr 1fr; align-items:center;} }
-  .promo-list{list-style:none; display:flex; flex-direction:column; gap:0;}
-  .promo-list li{
-    display:flex; gap:16px; padding:20px 0; border-top:1px solid var(--line);
-  }
-  .promo-list li:last-child{border-bottom:1px solid var(--line);}
-  .promo-list b{
-    font-family:'Anton'; color:var(--red); font-size:1.1rem; width:34px; flex-shrink:0;
-  }
-  .promo-list p{color:var(--ink-dim); font-size:0.98rem;}
-  .promo-list strong{color:var(--ink); display:block; margin-bottom:4px; font-size:1.05rem;}
+/* ===== PROMOTORA ===== */
+.promotora{background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+.promo-grid{display:grid; grid-template-columns:1fr; gap:28px;}
+@media (min-width:820px){ .promo-grid{grid-template-columns:1.1fr 1fr; align-items:center;} }
+.promo-list{list-style:none; display:flex; flex-direction:column; gap:0;}
+.promo-list li{
+display:flex; gap:16px; padding:20px 0; border-top:1px solid var(--line);
+}
+.promo-list li:last-child{border-bottom:1px solid var(--line);}
+.promo-list b{
+font-family:'Anton'; color:var(--red); font-size:1.1rem; width:34px; flex-shrink:0;
+}
+.promo-list p{color:var(--ink-dim); font-size:0.98rem;}
+.promo-list strong{color:var(--ink); display:block; margin-bottom:4px; font-size:1.05rem;}
 
-  .belt-card{
-    background:var(--bg); border:1px solid var(--line); padding:36px 30px;
-    position:relative;
-  }
-  .belt-card::before{
-    content:""; position:absolute; top:0; left:0; right:0; height:4px;
-    background:linear-gradient(90deg, var(--ink-dim), var(--red));
-  }
-  .belt-card .eyebrow{margin-bottom:14px;}
-  .belt-card h3{font-size:1.6rem; margin-bottom:14px;}
-  .belt-card p{color:var(--ink-dim);}
+.belt-card{
+background:var(--bg); border:1px solid var(--line); padding:36px 30px;
+position:relative;
+}
+.belt-card::before{
+content:""; position:absolute; top:0; left:0; right:0; height:4px;
+background:linear-gradient(90deg, var(--ink-dim), var(--red));
+}
+.belt-card .eyebrow{margin-bottom:14px;}
+.belt-card h3{font-size:1.6rem; margin-bottom:14px;}
+.belt-card p{color:var(--ink-dim);}
 
-  /* ===== CATEGORIAS ===== */
-  .cat-grid{display:grid; grid-template-columns:1fr; gap:20px;}
-  @media (min-width:768px){ .cat-grid{grid-template-columns:repeat(3,1fr);} }
-  .cat-card{
-    background:var(--surface); border:1px solid var(--line);
-    padding:32px 26px; transition:border-color 0.2s, transform 0.2s;
-  }
-  .cat-card:hover{border-color:var(--red); transform:translateY(-4px);}
-  .cat-num{font-family:'Barlow Condensed'; color:var(--red); font-weight:700; letter-spacing:0.1em; font-size:0.85rem;}
-  .cat-card h3{font-size:1.5rem; margin:12px 0 10px;}
-  .cat-card p{color:var(--ink-dim); font-size:0.95rem; margin-bottom:16px;}
-  .cat-tag{
-    display:inline-block; font-family:'Barlow Condensed'; font-size:0.78rem; letter-spacing:0.08em;
-    text-transform:uppercase; color:var(--gold); border:1px solid var(--gold); padding:4px 10px;
-  }
-  .form-note{
-    margin-top:32px; padding:22px 24px; background:var(--surface-2); border-left:3px solid var(--red);
-    display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between;
-  }
-  .form-note p{color:var(--ink-dim); font-size:0.95rem; max-width:480px;}
+/* ===== CATEGORIAS ===== */
+.cat-grid{display:grid; grid-template-columns:1fr; gap:20px;}
+@media (min-width:768px){ .cat-grid{grid-template-columns:repeat(3,1fr);} }
+.cat-card{
+background:var(--surface); border:1px solid var(--line);
+padding:32px 26px; transition:border-color 0.2s, transform 0.2s;
+}
+.cat-card:hover{border-color:var(--red); transform:translateY(-4px);}
+.cat-icon{margin-bottom:16px;}
+.cat-num{font-family:'Barlow Condensed'; color:var(--red); font-weight:700; letter-spacing:0.1em; font-size:0.85rem;}
+.cat-card h3{font-size:1.5rem; margin:12px 0 10px;}
+.cat-card p{color:var(--ink-dim); font-size:0.95rem; margin-bottom:16px;}
+.cat-tag{
+display:inline-block; font-family:'Barlow Condensed'; font-size:0.78rem; letter-spacing:0.08em;
+text-transform:uppercase; color:var(--gold); border:1px solid var(--gold); padding:4px 10px;
+}
+.form-note{
+margin-top:32px; padding:22px 24px; background:var(--surface-2); border-left:3px solid var(--red);
+display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between;
+}
+.form-note p{color:var(--ink-dim); font-size:0.95rem; max-width:480px;}
 
-  /* ===== LADDER (signature) ===== */
-  .ladder-section{background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .ladder{
-    position:relative; margin-top:20px;
-    display:flex; flex-direction:column; gap:0;
-  }
-  .rung{
-    display:grid; grid-template-columns:64px 1fr; gap:20px;
-    padding:26px 0; border-top:1px solid var(--line); position:relative;
-  }
-  .rung:last-child{border-bottom:1px solid var(--line);}
-  .rung-index{
-    font-family:'Anton'; font-size:1.6rem; color:var(--ink-dim); align-self:start; padding-top:2px;
-  }
-  .rung:nth-child(4) .rung-index{color:var(--gold);}
-  .rung h4{font-size:1.25rem; margin-bottom:6px; letter-spacing:0.3px;}
-  .rung p{color:var(--ink-dim); font-size:0.96rem; max-width:640px;}
-  .rung-mark{
-    position:absolute; left:74px; top:-1px; bottom:-1px; width:2px; background:var(--line);
-  }
-  .rung:first-child .rung-mark{top:50%;}
-  .rung:last-child .rung-mark{bottom:50%;}
-  .rung-dot{
-    position:absolute; left:64px; top:32px; width:12px; height:12px; border-radius:50%;
-    background:var(--red); transform:translateX(-5px); border:2px solid var(--bg);
-  }
-  .rung:nth-child(4) .rung-dot{background:var(--gold); width:16px; height:16px; transform:translateX(-7px); top:28px;}
+/* ===== LADDER (signature) ===== */
+.ladder-section{background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+.ladder{
+position:relative; margin-top:20px;
+display:flex; flex-direction:column; gap:0;
+}
+.rung{
+display:grid; grid-template-columns:64px 1fr; gap:20px;
+padding:26px 0; border-top:1px solid var(--line); position:relative;
+}
+.rung:last-child{border-bottom:1px solid var(--line);}
+.rung-index{
+font-family:'Anton'; font-size:1.6rem; color:var(--ink-dim); align-self:start; padding-top:2px;
+}
+.rung:nth-child(4) .rung-index{color:var(--gold);}
+.rung h4{font-size:1.25rem; margin-bottom:6px; letter-spacing:0.3px;}
+.rung p{color:var(--ink-dim); font-size:0.96rem; max-width:640px;}
+.rung-mark{
+position:absolute; left:74px; top:-1px; bottom:-1px; width:2px; background:var(--line);
+}
+.rung:first-child .rung-mark{top:50%;}
+.rung:last-child .rung-mark{bottom:50%;}
+.rung-dot{
+position:absolute; left:64px; top:32px; width:12px; height:12px; border-radius:50%;
+background:var(--red); transform:translateX(-5px); border:2px solid var(--bg);
+}
+.rung:nth-child(4) .rung-dot{background:var(--gold); width:16px; height:16px; transform:translateX(-7px); top:28px;}
 
-  /* ===== TABLA DE PELEAS ===== */
-  .table-wrap{margin-top:40px;}
-  .fight-table{
-    width:100%; border-collapse:collapse; background:var(--bg);
-    border:1px solid var(--line); font-family:'Barlow', sans-serif;
-  }
-  .fight-table th{
-    text-align:left; font-family:'Barlow Condensed'; font-weight:600; letter-spacing:0.06em;
-    text-transform:uppercase; font-size:0.82rem; color:var(--ink-dim);
-    padding:14px 18px; border-bottom:1px solid var(--line);
-  }
-  .fight-table td{
-    padding:16px 18px; border-bottom:1px solid var(--line); font-size:0.95rem; color:var(--ink);
-  }
-  .fight-table th:last-child, .fight-table td:last-child{text-align:right; white-space:nowrap;}
-  .fight-table tbody tr:last-child td{border-bottom:none;}
-  .fight-table .total-row td{
-    font-family:'Barlow Condensed'; font-weight:700; letter-spacing:0.02em;
-    color:var(--red); background:var(--surface-2); border-top:1px solid var(--red-dim);
-    font-size:1rem;
-  }
-  .table-note{margin-top:16px; color:var(--ink-dim); font-size:0.9rem; max-width:640px;}
+/* ===== TABLA DE PELEAS ===== */
+.table-wrap{margin-top:40px;}
+.fight-table{
+width:100%; border-collapse:collapse; background:var(--bg);
+border:1px solid var(--line); font-family:'Barlow', sans-serif;
+}
+.fight-table th{
+text-align:left; font-family:'Barlow Condensed'; font-weight:600; letter-spacing:0.06em;
+text-transform:uppercase; font-size:0.82rem; color:var(--ink-dim);
+padding:14px 18px; border-bottom:1px solid var(--line);
+}
+.fight-table td{
+padding:16px 18px; border-bottom:1px solid var(--line); font-size:0.95rem; color:var(--ink);
+}
+.fight-table th:last-child, .fight-table td:last-child{text-align:right; white-space:nowrap;}
+.fight-table tbody tr:last-child td{border-bottom:none;}
+.fight-table .total-row td{
+font-family:'Barlow Condensed'; font-weight:700; letter-spacing:0.02em;
+color:var(--red); background:var(--surface-2); border-top:1px solid var(--red-dim);
+font-size:1rem;
+}
+.table-note{margin-top:16px; color:var(--ink-dim); font-size:0.9rem; max-width:640px;}
 
-  /* ===== DEFENSA ===== */
-  .rules-grid{display:grid; grid-template-columns:1fr; gap:1px; background:var(--line); border:1px solid var(--line);}
-  @media (min-width:768px){ .rules-grid{grid-template-columns:repeat(3,1fr);} }
-  .rule{background:var(--bg); padding:30px 26px;}
-  .rule .eyebrow{color:var(--gold);}
-  .rule h3{font-size:1.3rem; margin:12px 0 10px;}
-  .rule p{color:var(--ink-dim); font-size:0.95rem;}
+/* ===== DEFENSA ===== */
+.rules-grid{display:grid; grid-template-columns:1fr; gap:1px; background:var(--line); border:1px solid var(--line);}
+@media (min-width:768px){ .rules-grid{grid-template-columns:repeat(3,1fr);} }
+.rule{background:var(--bg); padding:30px 26px;}
+.rule .eyebrow{color:var(--gold);}
+.rule h3{font-size:1.3rem; margin:12px 0 10px;}
+.rule p{color:var(--ink-dim); font-size:0.95rem;}
 
-  /* ===== HYPE / REDES ===== */
-  .hype{background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .hype-grid{display:grid; grid-template-columns:1fr; gap:20px;}
-  @media (min-width:768px){ .hype-grid{grid-template-columns:repeat(3,1fr);} }
-  .hype-card{border:1px solid var(--line); padding:28px 24px; background:var(--bg);}
-  .hype-card h3{font-size:1.2rem; margin:10px 0 10px;}
-  .hype-card p{color:var(--ink-dim); font-size:0.93rem;}
-  .hype-icon{
-    width:38px; height:38px; border:1px solid var(--red); display:flex; align-items:center; justify-content:center;
-    font-family:'Anton'; color:var(--red); font-size:1rem;
-  }
+/* ===== HYPE / REDES ===== */
+.hype{background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+.hype-grid{display:grid; grid-template-columns:1fr; gap:20px;}
+@media (min-width:768px){ .hype-grid{grid-template-columns:repeat(3,1fr);} }
+.hype-card{border:1px solid var(--line); padding:28px 24px; background:var(--bg);}
+.hype-card h3{font-size:1.2rem; margin:10px 0 10px;}
+.hype-card p{color:var(--ink-dim); font-size:0.93rem;}
+.hype-icon{
+width:38px; height:38px; border:1px solid var(--red); display:flex; align-items:center; justify-content:center;
+font-family:'Anton'; color:var(--red); font-size:1rem;
+}
 
-  /* ===== CTA FOOTER ===== */
-  .cta-final{padding:96px 0; text-align:center;}
-  .cta-final h2{font-size:clamp(2.2rem,6vw,3.6rem); margin-bottom:20px;}
-  .cta-final p{color:var(--ink-dim); max-width:520px; margin:0 auto 36px;}
-  .cta-actions{display:flex; flex-wrap:wrap; gap:14px; justify-content:center;}
-  .contact-line{margin-top:40px; font-family:'Barlow Condensed'; letter-spacing:0.05em; color:var(--ink-dim); font-size:1rem;}
-  .contact-line strong{color:var(--ink); font-weight:600;}
+/* ===== CTA FOOTER ===== */
+.cta-final{padding:96px 0; text-align:center;}
+.cta-final h2{font-size:clamp(2.2rem,6vw,3.6rem); margin-bottom:20px;}
+.cta-final p{color:var(--ink-dim); max-width:520px; margin:0 auto 36px;}
+.cta-actions{display:flex; flex-wrap:wrap; gap:14px; justify-content:center;}
+.contact-line{margin-top:40px; font-family:'Barlow Condensed'; letter-spacing:0.05em; color:var(--ink-dim); font-size:1rem;}
+.contact-line strong{color:var(--ink); font-weight:600;}
 
-  footer{
-    border-top:1px solid var(--line); padding:32px 0; text-align:center;
-    color:var(--ink-dim); font-family:'Barlow Condensed'; letter-spacing:0.05em; font-size:0.85rem;
-  }
+footer{
+border-top:1px solid var(--line); padding:32px 0; text-align:center;
+color:var(--ink-dim); font-family:'Barlow Condensed'; letter-spacing:0.05em; font-size:0.85rem;
+}
 
-  ::selection{background:var(--red); color:var(--ink);}
+::selection{background:var(--red); color:var(--ink);}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="nav wrap">
-    <div class="logo">PFN<span>.</span></div>
-    <a class="nav-cta" href="https://forms.gle/mKfwJWU6NDodyN4JA" target="_blank" rel="noopener">Inscribirme</a>
-  </div>
+<div class="nav wrap">
+<div class="logo">PFN<span>.</span></div>
+<a class="nav-cta" href="https://sistema.narinoexposhow.com/pfn/registro">Inscribirme</a>
+</div>
 </header>
 
 <section class="hero">
-  <div class="wrap hero-inner">
-    <span class="eyebrow">Promotora de artes marciales mixtas</span>
-    <h1>Aquí se pelea<br>por ser el <em>mejor</em><br>del departamento.</h1>
-    <p class="lead">PFN es la promotora que arma las peleas, define los rankings y entrega los títulos. Boxeo, kickboxing y grappling, un solo camino al cinturón.</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="https://forms.gle/mKfwJWU6NDodyN4JA" target="_blank" rel="noopener">Ver formulario de categorías</a>
-      <a class="btn btn-ghost" href="tel:3151956503">Llamar · 315 195 6503</a>
-    </div>
-    <div class="hero-stats">
-      <div><strong>3</strong><span>Disciplinas</span></div>
-      <div><strong>1</strong><span>Cinturón por categoría</span></div>
-      <div><strong>100%</strong><span>Proceso controlado por PFN</span></div>
-    </div>
-  </div>
+<div class="wrap hero-inner">
+<span class="eyebrow">Promotora de artes marciales mixtas</span>
+<h1>Aquí se pelea<br>por ser el <em>mejor</em><br>del departamento.</h1>
+<p class="lead">PFN es la promotora que arma las peleas, define los rankings y entrega los títulos. Boxeo, kickboxing y grappling, un solo camino al cinturón.</p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="https://sistema.narinoexposhow.com/pfn/registro">Ver formulario de categorías</a>
+<a class="btn btn-ghost" href="tel:3151956503">Llamar · 315 195 6503</a>
+</div>
+<div class="hero-stats">
+<div><strong>3</strong><span>Disciplinas</span></div>
+<div><strong>1</strong><span>Cinturón por categoría</span></div>
+<div><strong>100%</strong><span>Proceso controlado por PFN</span></div>
+</div>
+</div>
 </section>
 
 <section class="promotora">
-  <div class="wrap">
-    <div class="promo-grid">
-      <div>
-        <span class="eyebrow">Quiénes somos</span>
-        <h2 style="margin-top:10px; font-size:clamp(1.8rem,4vw,2.6rem);">Somos una promotora, no solo un evento.</h2>
-        <ul class="promo-list">
-          <li><b>01</b><div><strong>Armamos las peleas</strong><p>Elegimos los enfrentamientos según ranking, disciplina y categoría de peso.</p></div></li>
-          <li><b>02</b><div><strong>Definimos los rankings</strong><p>Publicamos y actualizamos el Top de cada disciplina después de cada evento.</p></div></li>
-          <li><b>03</b><div><strong>Entregamos los títulos</strong><p>PFN otorga y respalda cada cinturón, de principio a fin.</p></div></li>
-        </ul>
-      </div>
-      <div class="belt-card">
-        <span class="eyebrow">Nuestro rol</span>
-        <h3>Controlamos todo el proceso</h3>
-        <p>Desde el primer contendiente sin ranking hasta la noche en que un peleador levanta el cinturón: PFN organiza, clasifica y respalda cada paso del camino al título.</p>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="promo-grid">
+<div>
+<span class="eyebrow">Quiénes somos</span>
+<h2 style="margin-top:10px; font-size:clamp(1.8rem,4vw,2.6rem);">Somos una promotora, no solo un evento.</h2>
+<ul class="promo-list">
+<li><b>01</b><div><strong>Armamos las peleas</strong><p>Elegimos los enfrentamientos según ranking, disciplina y categoría de peso.</p></div></li>
+<li><b>02</b><div><strong>Definimos los rankings</strong><p>Publicamos y actualizamos el Top de cada disciplina después de cada evento.</p></div></li>
+<li><b>03</b><div><strong>Entregamos los títulos</strong><p>PFN otorga y respalda cada cinturón, de principio a fin.</p></div></li>
+</ul>
+</div>
+<div class="belt-card">
+<span class="eyebrow">Nuestro rol</span>
+<h3>Controlamos todo el proceso</h3>
+<p>Desde el primer contendiente sin ranking hasta la noche en que un peleador levanta el cinturón: PFN organiza, clasifica y respalda cada paso del camino al título.</p>
+</div>
+</div>
+</div>
 </section>
 
 <section id="categorias">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Disciplinas</span>
-      <h2>Tres caminos, tres cinturones.</h2>
-      <p>Cada disciplina tiene su propio ranking y su propio título. Revisa el formulario para conocer las categorías de peso y edad disponibles.</p>
-    </div>
-    <div class="cat-grid">
-      <div class="cat-card">
-        <span class="cat-num">Disciplina 01</span>
-        <h3>Boxeo</h3>
-        <p>Ranking propio por categoría de peso, con su cinturón PFN de boxeo en juego.</p>
-        <span class="cat-tag">Cinturón PFN Boxeo</span>
-      </div>
-      <div class="cat-card">
-        <span class="cat-num">Disciplina 02</span>
-        <h3>Kickboxing</h3>
-        <p>Los mejores strikers del departamento compiten por el Top 5 y el cinturón.</p>
-        <span class="cat-tag">Cinturón PFN Kickboxing</span>
-      </div>
-      <div class="cat-card">
-        <span class="cat-num">Disciplina 03</span>
-        <h3>Grappling</h3>
-        <p>Sin golpes, todo técnica: el ranking de sumisión y control define al campeón.</p>
-        <span class="cat-tag">Cinturón PFN Grappling</span>
-      </div>
-    </div>
-    <div class="form-note">
-      <p>Las categorías exactas de peso, edad y modalidad están detalladas en nuestro formulario de inscripción.</p>
-      <a class="btn btn-primary" style="padding:12px 22px;" href="https://forms.gle/mKfwJWU6NDodyN4JA" target="_blank" rel="noopener">Abrir formulario</a>
-    </div>
-  </div>
+<div class="wrap">
+<div class="section-head">
+<span class="eyebrow">Disciplinas</span>
+<h2>Tres caminos, tres cinturones.</h2>
+<p>Cada disciplina tiene su propio ranking y su propio título. Revisa el formulario para conocer las categorías de peso y edad disponibles.</p>
+</div>
+<div class="cat-grid">
+<div class="cat-card">
+<div class="cat-icon">
+<svg width="34" height="34" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="1" y="13" width="9" height="6" rx="1" fill="#A6A6AB"/>
+<rect x="22" y="13" width="9" height="6" rx="1" fill="#A6A6AB"/>
+<rect x="9" y="9" width="14" height="14" rx="2" fill="#C4302B"/>
+<rect x="13" y="13" width="6" height="6" rx="1" fill="#0A0A0B"/>
+</svg>
+</div>
+<span class="cat-num">Disciplina 01</span>
+<h3>Boxeo</h3>
+<p>Ranking propio por categoría de peso, con su cinturón PFN de boxeo en juego.</p>
+<span class="cat-tag">Cinturón PFN Boxeo</span>
+</div>
+<div class="cat-card">
+<div class="cat-icon">
+<svg width="34" height="34" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="1" y="13" width="9" height="6" rx="1" fill="#A6A6AB"/>
+<rect x="22" y="13" width="9" height="6" rx="1" fill="#A6A6AB"/>
+<rect x="9" y="9" width="14" height="14" rx="2" fill="#C4302B"/>
+<rect x="13" y="13" width="6" height="6" rx="1" fill="#0A0A0B"/>
+</svg>
+</div>
+<span class="cat-num">Disciplina 02</span>
+<h3>Kickboxing</h3>
+<p>Los mejores strikers del departamento compiten por el Top 5 y el cinturón.</p>
+<span class="cat-tag">Cinturón PFN Kickboxing</span>
+</div>
+<div class="cat-card">
+<div class="cat-icon">
+<svg width="34" height="34" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="1" y="13" width="9" height="6" rx="1" fill="#A6A6AB"/>
+<rect x="22" y="13" width="9" height="6" rx="1" fill="#A6A6AB"/>
+<rect x="9" y="9" width="14" height="14" rx="2" fill="#C4302B"/>
+<rect x="13" y="13" width="6" height="6" rx="1" fill="#0A0A0B"/>
+</svg>
+</div>
+<span class="cat-num">Disciplina 03</span>
+<h3>Grappling</h3>
+<p>Sin golpes, todo técnica: el ranking de sumisión y control define al campeón.</p>
+<span class="cat-tag">Cinturón PFN Grappling</span>
+</div>
+</div>
+<div class="form-note">
+<p>Las categorías exactas de peso, edad y modalidad están detalladas en nuestro formulario de inscripción.</p>
+<a class="btn btn-primary" style="padding:12px 22px;" href="https://sistema.narinoexposhow.com/pfn/registro">Abrir formulario</a>
+</div>
+</div>
 </section>
 
 <section class="ladder-section">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Camino al cinturón</span>
-      <h2>Nadie llega al título de la nada.</h2>
-      <p>Así se construye un campeón PFN, paso por paso, dentro de cada disciplina.</p>
-    </div>
-    <div class="ladder">
-      <div class="rung">
-        <span class="rung-index">01</span>
-        <div><h4>Contendiente sin ranking</h4><p>Todo peleador nuevo entra fuera del Top. Debe ganarse un lugar peleando.</p></div>
-        <span class="rung-mark"></span><span class="rung-dot"></span>
-      </div>
-      <div class="rung">
-        <span class="rung-index">02</span>
-        <div><h4>Serie de ascenso</h4><p>Necesita ganar 2 a 3 peleas contra peleadores ya rankeados para entrar al Top 5 de su disciplina.</p></div>
-        <span class="rung-mark"></span><span class="rung-dot"></span>
-      </div>
-      <div class="rung">
-        <span class="rung-index">03</span>
-        <div><h4>Pelea eliminatoria</h4><p>Ya en el Top 5, se enfrenta al #1 (o al campeón, si ya lo hay). El ganador se convierte en contendiente número 1 oficial.</p></div>
-        <span class="rung-mark"></span><span class="rung-dot"></span>
-      </div>
-      <div class="rung">
-        <span class="rung-index">04</span>
-        <div><h4>Pelea por el título</h4><p>El contendiente número 1 se enfrenta al campeón por el cinturón de la disciplina.</p></div>
-        <span class="rung-mark"></span><span class="rung-dot"></span>
-      </div>
-    </div>
-    <div class="form-note" style="margin-top:32px;">
-      <p>En la primera edición de PFN todos los peleadores parten sin ranking: esa noche se empieza a construir el Top de cada disciplina y categoría. Las peleas de título llegan más adelante, cuando ya haya contendientes rankeados.</p>
-    </div>
+<div class="wrap">
+<div class="section-head">
+<span class="eyebrow">Camino al cinturón</span>
+<h2>Nadie llega al título de la nada.</h2>
+<p>Así se construye un campeón PFN, paso por paso, dentro de cada disciplina.</p>
+</div>
+<div class="ladder">
+<div class="rung">
+<span class="rung-index">01</span>
+<div><h4>Contendiente sin ranking</h4><p>Todo peleador nuevo entra fuera del Top. Debe ganarse un lugar peleando.</p></div>
+<span class="rung-mark"></span><span class="rung-dot"></span>
+</div>
+<div class="rung">
+<span class="rung-index">02</span>
+<div><h4>Serie de ascenso</h4><p>Necesita ganar 2 a 3 peleas contra peleadores ya rankeados para entrar al Top 5 de su disciplina.</p></div>
+<span class="rung-mark"></span><span class="rung-dot"></span>
+</div>
+<div class="rung">
+<span class="rung-index">03</span>
+<div><h4>Pelea eliminatoria</h4><p>Ya en el Top 5, se enfrenta al #1 (o al campeón, si ya lo hay). El ganador se convierte en contendiente número 1 oficial.</p></div>
+<span class="rung-mark"></span><span class="rung-dot"></span>
+</div>
+<div class="rung">
+<span class="rung-index">04</span>
+<div><h4>Pelea por el título</h4><p>El contendiente número 1 se enfrenta al campeón por el cinturón de la disciplina.</p></div>
+<span class="rung-mark"></span><span class="rung-dot"></span>
+</div>
+</div>
+<div class="form-note" style="margin-top:32px;">
+<p>En la primera edición de PFN todos los peleadores parten sin ranking: esa noche se empieza a construir el Top de cada disciplina y categoría. Las peleas de título llegan más adelante, cuando ya haya contendientes rankeados.</p>
+</div>
 
-    <div class="table-wrap">
-      <span class="eyebrow" style="display:block; margin-bottom:14px;">¿Cuántas peleas hay que ganar?</span>
-      <table class="fight-table">
-        <thead>
-          <tr><th>Paso</th><th>Qué gana</th><th>Peleas</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Serie de ascenso</td><td>Vence a 2 o 3 peleadores ya rankeados para entrar al Top 5</td><td>2–3</td></tr>
-          <tr><td>Eliminatoria</td><td>Vence al #1 del ranking (o al campeón, si ya existe)</td><td>1</td></tr>
-          <tr><td>Pelea por el título</td><td>Vence al campeón</td><td>1</td></tr>
-          <tr class="total-row"><td colspan="2">Total para llegar al cinturón</td><td>4–5</td></tr>
-        </tbody>
-      </table>
-      <p class="table-note">Si el título queda vacante por 6 meses sin defensa, se saltan al paso final: pelean directamente los dos mejores contendientes, así que ese camino puede ser de solo 3 peleas.</p>
-    </div>
-  </div>
+<div class="table-wrap">
+<span class="eyebrow" style="display:block; margin-bottom:14px;">¿Cuántas peleas hay que ganar?</span>
+<table class="fight-table">
+<thead>
+<tr><th>Paso</th><th>Qué gana</th><th>Peleas</th></tr>
+</thead>
+<tbody>
+<tr><td>Serie de ascenso</td><td>Vence a 2 o 3 peleadores ya rankeados para entrar al Top 5</td><td>2–3</td></tr>
+<tr><td>Eliminatoria</td><td>Vence al #1 del ranking (o al campeón, si ya existe)</td><td>1</td></tr>
+<tr><td>Pelea por el título</td><td>Vence al campeón</td><td>1</td></tr>
+<tr class="total-row"><td colspan="2">Total para llegar al cinturón</td><td>4–5</td></tr>
+</tbody>
+</table>
+<p class="table-note">Si el título queda vacante por 6 meses sin defensa, se saltan al paso final: pelean directamente los dos mejores contendientes, así que ese camino puede ser de solo 3 peleas.</p>
+</div>
+</div>
 </section>
 
 <section>
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Reglas del título</span>
-      <h2>Defender el cinturón también es parte del camino.</h2>
-    </div>
-    <div class="rules-grid">
-      <div class="rule">
-        <span class="eyebrow">Defensa</span>
-        <h3>Contra el contendiente #1</h3>
-        <p>El campeón defiende el título contra el contendiente número 1 en la siguiente edición del evento.</p>
-      </div>
-      <div class="rule">
-        <span class="eyebrow">Vacancia</span>
-        <h3>Título vacante</h3>
-        <p>Si el campeón no defiende el cinturón en 6 meses, el título queda vacante.</p>
-      </div>
-      <div class="rule">
-        <span class="eyebrow">Pelea por vacante</span>
-        <h3>Se define entre los dos mejores</h3>
-        <p>Con el título vacante, los dos mejores contendientes de la disciplina pelean por el cinturón vacío.</p>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="section-head">
+<span class="eyebrow">Reglas del título</span>
+<h2>Defender el cinturón también es parte del camino.</h2>
+</div>
+<div class="rules-grid">
+<div class="rule">
+<span class="eyebrow">Defensa</span>
+<h3>Contra el contendiente #1</h3>
+<p>El campeón defiende el título contra el contendiente número 1 en la siguiente edición del evento.</p>
+</div>
+<div class="rule">
+<span class="eyebrow">Vacancia</span>
+<h3>Título vacante</h3>
+<p>Si el campeón no defiende el cinturón en 6 meses, el título queda vacante.</p>
+</div>
+<div class="rule">
+<span class="eyebrow">Pelea por vacante</span>
+<h3>Se define entre los dos mejores</h3>
+<p>Con el título vacante, los dos mejores contendientes de la disciplina pelean por el cinturón vacío.</p>
+</div>
+</div>
+</div>
 </section>
 
 <section class="hype">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">En redes</span>
-      <h2>El ranking se cuenta, no solo se pelea.</h2>
-      <p>Así comunicamos cada movimiento del título, para que cada pelea tenga contexto antes de empezar.</p>
-    </div>
-    <div class="hype-grid">
-      <div class="hype-card">
-        <div class="hype-icon">R</div>
-        <h3>Ranking PFN por disciplina</h3>
-        <p>Gráfica del Top actualizada después de cada evento, disciplina por disciplina.</p>
-      </div>
-      <div class="hype-card">
-        <div class="hype-icon">C</div>
-        <h3>Contexto en cada post</h3>
-        <p>Cada anuncio de pelea indica si es de ranking, eliminatoria o por el título.</p>
-      </div>
-      <div class="hype-card">
-        <div class="hype-icon">H</div>
-        <h3>"Camino al cinturón"</h3>
-        <p>Highlight fijo en el perfil con la línea de tiempo de cada campeón, desde su primera pelea.</p>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="section-head">
+<span class="eyebrow">En redes</span>
+<h2>El ranking se cuenta, no solo se pelea.</h2>
+<p>Así comunicamos cada movimiento del título, para que cada pelea tenga contexto antes de empezar.</p>
+</div>
+<div class="hype-grid">
+<div class="hype-card">
+<div class="hype-icon">R</div>
+<h3>Ranking PFN por disciplina</h3>
+<p>Gráfica del Top actualizada después de cada evento, disciplina por disciplina.</p>
+</div>
+<div class="hype-card">
+<div class="hype-icon">C</div>
+<h3>Contexto en cada post</h3>
+<p>Cada anuncio de pelea indica si es de ranking, eliminatoria o por el título.</p>
+</div>
+<div class="hype-card">
+<div class="hype-icon">H</div>
+<h3>"Camino al cinturón"</h3>
+<p>Highlight fijo en el perfil con la línea de tiempo de cada campeón, desde su primera pelea.</p>
+</div>
+</div>
+</div>
 </section>
 
 <section class="cta-final">
-  <div class="wrap">
-    <span class="eyebrow">Próximo evento</span>
-    <h2 style="margin-top:14px;">Busca ser el mejor<br>de tu categoría.</h2>
-    <p>Revisa las categorías disponibles en el formulario e inscríbete para pelear en PFN.</p>
-    <div class="cta-actions">
-      <a class="btn btn-primary" href="https://forms.gle/mKfwJWU6NDodyN4JA" target="_blank" rel="noopener">Llenar formulario</a>
-      <a class="btn btn-ghost" href="tel:3151956503">Llamar · 315 195 6503</a>
-    </div>
-    <p class="contact-line">Contacto directo · <strong>315 195 6503</strong></p>
-  </div>
+<div class="wrap">
+<span class="eyebrow">Próximo evento</span>
+<h2 style="margin-top:14px;">Busca ser el mejor<br>de tu categoría.</h2>
+<p>Revisa las categorías disponibles en el formulario e inscríbete para pelear en PFN.</p>
+<div class="cta-actions">
+<a class="btn btn-primary" href="https://sistema.narinoexposhow.com/pfn/registro">Llenar formulario</a>
+<a class="btn btn-ghost" href="tel:3151956503">Llamar · 315 195 6503</a>
+</div>
+<p class="contact-line">Contacto directo · <strong>315 195 6503</strong></p>
+</div>
 </section>
 
 <footer>
-  <div class="wrap">PFN — Promotora de Artes Marciales Mixtas</div>
+<div class="wrap">PFN — Promotora de Artes Marciales Mixtas</div>
 </footer>
 
 </body>
