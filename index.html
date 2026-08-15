@@ -62,6 +62,14 @@ border:1px solid var(--red);
 transition:background 0.2s, color 0.2s;
 }
 .nav-cta:hover{background:transparent; color:var(--red);}
+.nav-link{
+font-family:'Barlow Condensed', sans-serif;
+font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+font-size:0.85rem; color:var(--ink-dim); text-decoration:none; margin-right:20px;
+transition:color 0.2s;
+}
+.nav-link:hover{color:var(--ink);}
+.nav-right{display:flex; align-items:center;}
 
 /* ===== HERO ===== */
 .hero{
@@ -154,7 +162,8 @@ background:linear-gradient(90deg, var(--ink-dim), var(--red));
 
 /* ===== CATEGORIAS ===== */
 .cat-grid{display:grid; grid-template-columns:1fr; gap:20px;}
-@media (min-width:768px){ .cat-grid{grid-template-columns:repeat(3,1fr);} }
+@media (min-width:640px){ .cat-grid{grid-template-columns:repeat(2,1fr);} }
+@media (min-width:1100px){ .cat-grid{grid-template-columns:repeat(4,1fr);} }
 .cat-card{
 background:var(--surface); border:1px solid var(--line);
 padding:32px 26px; transition:border-color 0.2s, transform 0.2s;
@@ -266,7 +275,10 @@ color:var(--ink-dim); font-family:'Barlow Condensed'; letter-spacing:0.05em; fon
 <header>
 <div class="nav wrap">
 <div class="logo">PFN<span>.</span></div>
+<div class="nav-right">
+<a class="nav-link" href="reglamento.html">Reglamento</a>
 <a class="nav-cta" href="https://sistema.narinoexposhow.com/pfn/registro">Inscribirme</a>
+</div>
 </div>
 </header>
 
@@ -274,13 +286,13 @@ color:var(--ink-dim); font-family:'Barlow Condensed'; letter-spacing:0.05em; fon
 <div class="wrap hero-inner">
 <span class="eyebrow">Promotora de artes marciales mixtas</span>
 <h1>Aquí se pelea<br>por ser el <em>mejor</em><br>del departamento.</h1>
-<p class="lead">PFN es la promotora que arma las peleas, define los rankings y entrega los títulos. Boxeo, kickboxing y grappling, un solo camino al cinturón.</p>
+<p class="lead">PFN es la promotora que arma las peleas, define los rankings y entrega los títulos. Boxeo, kickboxing, grappling y combat jiu-jitsu, un solo camino al cinturón.</p>
 <div class="hero-actions">
 <a class="btn btn-primary" href="https://sistema.narinoexposhow.com/pfn/registro">Ver formulario de categorías</a>
-<a class="btn btn-ghost" href="tel:3151956503">Llamar · 315 195 6503</a>
+<a class="btn btn-ghost" href="reglamento.html">Ver reglamento</a>
 </div>
 <div class="hero-stats">
-<div><strong>3</strong><span>Disciplinas</span></div>
+<div><strong>4</strong><span>Disciplinas</span></div>
 <div><strong>1</strong><span>Cinturón por categoría</span></div>
 <div><strong>100%</strong><span>Proceso controlado por PFN</span></div>
 </div>
@@ -312,8 +324,8 @@ color:var(--ink-dim); font-family:'Barlow Condensed'; letter-spacing:0.05em; fon
 <div class="wrap">
 <div class="section-head">
 <span class="eyebrow">Disciplinas</span>
-<h2>Tres caminos, tres cinturones.</h2>
-<p>Cada disciplina tiene su propio ranking y su propio título. Revisa el formulario para conocer las categorías de peso y edad disponibles.</p>
+<h2>Cuatro caminos, cuatro cinturones.</h2>
+<p>Cada disciplina tiene su propio ranking y su propio título. Revisa el reglamento y el formulario para conocer las categorías de peso y edad disponibles.</p>
 </div>
 <div class="cat-grid">
 <div class="cat-card">
@@ -358,10 +370,27 @@ color:var(--ink-dim); font-family:'Barlow Condensed'; letter-spacing:0.05em; fon
 <p>Sin golpes, todo técnica: el ranking de sumisión y control define al campeón.</p>
 <span class="cat-tag">Cinturón PFN Grappling</span>
 </div>
+<div class="cat-card">
+<div class="cat-icon">
+<svg width="34" height="34" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="1" y="13" width="9" height="6" rx="1" fill="#A6A6AB"/>
+<rect x="22" y="13" width="9" height="6" rx="1" fill="#A6A6AB"/>
+<rect x="9" y="9" width="14" height="14" rx="2" fill="#C4302B"/>
+<rect x="13" y="13" width="6" height="6" rx="1" fill="#0A0A0B"/>
+</svg>
+</div>
+<span class="cat-num">Disciplina 04</span>
+<h3>Combat Jiu-Jitsu</h3>
+<p>Grappling en el piso con golpes de palma abierta: sumisión, control y contundencia.</p>
+<span class="cat-tag">Cinturón PFN Combat Jiu-Jitsu</span>
+</div>
 </div>
 <div class="form-note">
-<p>Las categorías exactas de peso, edad y modalidad están detalladas en nuestro formulario de inscripción.</p>
+<p>Las categorías exactas de peso, edad y modalidad están detalladas en nuestro reglamento oficial y en el formulario de inscripción.</p>
+<div style="display:flex; flex-wrap:wrap; gap:12px;">
+<a class="btn btn-ghost" style="padding:12px 22px;" href="reglamento.html">Ver reglamento</a>
 <a class="btn btn-primary" style="padding:12px 22px;" href="https://sistema.narinoexposhow.com/pfn/registro">Abrir formulario</a>
+</div>
 </div>
 </div>
 </section>
