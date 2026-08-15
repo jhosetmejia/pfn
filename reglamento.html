@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reglamento Oficial — PFN | Pasto Fight Night</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A0A0B'/%3E%3Ctext x='50' y='70' font-size='62' font-family='Arial,sans-serif' font-weight='900' fill='%23C4302B' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#0A0A0B;
+--surface:#141416;
+--surface-2:#1B1B1E;
+--ink:#F2EFE9;
+--ink-dim:#9C9691;
+--line:#2A2A2D;
+--red:#C4302B;
+--red-dim:#7A1F1C;
+--gold:#A6A6AB;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+background:var(--bg);
+color:var(--ink);
+font-family:'Barlow', sans-serif;
+line-height:1.6;
+overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Anton', sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.5px;}
+.eyebrow{
+font-family:'Barlow Condensed', sans-serif;
+font-weight:600;
+letter-spacing:0.35em;
+text-transform:uppercase;
+font-size:0.78rem;
+color:var(--red);
+}
+a{color:inherit;}
+.wrap{max-width:980px; margin:0 auto; padding:0 24px;}
+@media (min-width:768px){ .wrap{padding:0 48px;} }
+
+/* ===== NAV ===== */
+header{
+position:sticky; top:0; z-index:50;
+background:rgba(10,10,11,0.92);
+backdrop-filter:blur(8px);
+border-bottom:1px solid var(--line);
+}
+.nav{display:flex; align-items:center; justify-content:space-between; padding:16px 24px; gap:16px;}
+@media (min-width:768px){ .nav{padding:16px 48px;} }
+.logo{font-family:'Anton', sans-serif; font-size:1.4rem; letter-spacing:1px; text-decoration:none; white-space:nowrap;}
+.logo span{color:var(--red);}
+.back-link{
+font-family:'Barlow Condensed', sans-serif; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+font-size:0.82rem; color:var(--ink-dim); text-decoration:none; display:flex; align-items:center; gap:8px;
+transition:color 0.2s;
+}
+.back-link:hover{color:var(--ink);}
+
+.quicknav{
+display:flex; gap:8px; overflow-x:auto; padding:0 24px 14px; scrollbar-width:none;
+}
+.quicknav::-webkit-scrollbar{display:none;}
+@media (min-width:768px){ .quicknav{padding:0 48px 14px;} }
+.quicknav a{
+flex-shrink:0; font-family:'Barlow Condensed', sans-serif; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+font-size:0.78rem; color:var(--ink-dim); text-decoration:none; padding:8px 14px; border:1px solid var(--line);
+transition:all 0.2s;
+}
+.quicknav a:hover{color:var(--ink); border-color:var(--red);}
+
+/* ===== REVEAL ANIMATION ===== */
+.reveal{opacity:0; transform:translateY(28px); transition:opacity 0.7s ease, transform 0.7s ease;}
+.reveal.visible{opacity:1; transform:translateY(0);}
+.reveal.delay-1.visible{transition-delay:0.08s;}
+.reveal.delay-2.visible{transition-delay:0.16s;}
+.reveal.delay-3.visible{transition-delay:0.24s;}
+.reveal.delay-4.visible{transition-delay:0.32s;}
+
+/* ===== HERO ===== */
+.reg-hero{
+position:relative; padding:80px 0 56px; overflow:hidden; border-bottom:1px solid var(--line);
+}
+.reg-hero::before{
+content:"";
+position:absolute; top:0; right:-10%; width:70%; height:220%;
+background:linear-gradient(100deg, transparent 42%, var(--red-dim) 42.4%, var(--red-dim) 44%, transparent 44.4%,
+transparent 47%, var(--red) 47.4%, var(--red) 49%, transparent 49.4%);
+transform:rotate(8deg);
+opacity:0.4;
+pointer-events:none;
+}
+.reg-hero-inner{position:relative; z-index:2;}
+.reg-hero h1{font-size:clamp(2.2rem, 6vw, 3.6rem); margin:16px 0 18px; line-height:1.02;}
+.reg-hero p{color:var(--ink-dim); font-size:1.05rem; max-width:680px;}
+.reg-hero .meta-row{
+display:flex; flex-wrap:wrap; gap:24px; margin-top:32px; padding-top:24px; border-top:1px solid var(--line);
+}
+.reg-hero .meta-row div strong{display:block; font-family:'Anton'; font-size:1.1rem; color:var(--gold);}
+.reg-hero .meta-row div span{font-size:0.8rem; color:var(--ink-dim); font-family:'Barlow Condensed'; letter-spacing:0.05em; text-transform:uppercase;}
+
+/* ===== SECTIONS ===== */
+.reg-section{padding:64px 0; border-bottom:1px solid var(--line);}
+.reg-section .section-num{
+font-family:'Barlow Condensed'; color:var(--red); font-weight:700; letter-spacing:0.15em; font-size:0.85rem;
+}
+.reg-section h2{font-size:clamp(1.6rem, 4vw, 2.2rem); margin:10px 0 12px;}
+.reg-section > .wrap > p.intro{color:var(--ink-dim); max-width:720px; margin-bottom:36px; font-size:1rem;}
+
+.reg-block{
+background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--red);
+padding:26px 26px; margin-bottom:20px;
+}
+.reg-block h3{font-family:'Barlow Condensed', sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; font-size:1.05rem; color:var(--ink); margin-bottom:12px;}
+.reg-block p{color:var(--ink-dim); font-size:0.95rem; margin-bottom:10px;}
+.reg-block p:last-child{margin-bottom:0;}
+.reg-block ul{list-style:none; display:flex; flex-direction:column; gap:10px; margin-top:6px;}
+.reg-block ul li{
+position:relative; padding-left:22px; color:var(--ink-dim); font-size:0.94rem;
+}
+.reg-block ul li::before{
+content:"—"; position:absolute; left:0; color:var(--red); font-weight:700;
+}
+
+/* ===== DISCIPLINE CARDS ===== */
+.disc-grid{display:grid; grid-template-columns:1fr; gap:22px;}
+@media (min-width:860px){ .disc-grid{grid-template-columns:repeat(2,1fr);} }
+.disc-card{
+background:var(--surface); border:1px solid var(--line); padding:30px 26px; position:relative;
+}
+.disc-card::before{
+content:""; position:absolute; top:0; left:0; right:0; height:4px;
+background:linear-gradient(90deg, var(--ink-dim), var(--red));
+}
+.disc-icon{margin-bottom:14px;}
+.disc-card .disc-tag{
+font-family:'Barlow Condensed'; color:var(--red); font-weight:700; letter-spacing:0.1em; font-size:0.8rem;
+}
+.disc-card h3{font-size:1.5rem; margin:10px 0 6px;}
+.disc-card .disc-meta{
+display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 18px;
+}
+.disc-card .disc-meta span{
+font-family:'Barlow Condensed'; font-size:0.76rem; letter-spacing:0.06em; text-transform:uppercase;
+color:var(--gold); border:1px solid var(--gold); padding:5px 10px;
+}
+.disc-card h4{
+font-family:'Barlow Condensed', sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;
+font-size:0.86rem; color:var(--ink); margin:16px 0 8px;
+}
+.disc-card p{color:var(--ink-dim); font-size:0.92rem; margin-bottom:8px;}
+.disc-card ul{list-style:none; display:flex; flex-direction:column; gap:8px;}
+.disc-card ul li{position:relative; padding-left:20px; color:var(--ink-dim); font-size:0.9rem;}
+.disc-card ul li::before{content:"•"; position:absolute; left:2px; color:var(--red);}
+.disc-card .faults p{color:var(--ink-dim);}
+.disc-card .faults{border-top:1px solid var(--line); margin-top:16px; padding-top:14px;}
+.disc-card .faults h4{color:var(--red);}
+
+/* ===== TABLES ===== */
+.table-scroll{overflow-x:auto; margin-top:20px;}
+.reg-table{
+width:100%; border-collapse:collapse; background:var(--bg); border:1px solid var(--line); min-width:520px;
+}
+.reg-table th{
+text-align:left; font-family:'Barlow Condensed'; font-weight:600; letter-spacing:0.06em;
+text-transform:uppercase; font-size:0.78rem; color:var(--ink-dim);
+padding:12px 16px; border-bottom:1px solid var(--line); background:var(--surface-2);
+}
+.reg-table td{
+padding:13px 16px; border-bottom:1px solid var(--line); font-size:0.92rem; color:var(--ink);
+}
+.reg-table td:last-child, .reg-table th:last-child{text-align:right; white-space:nowrap; color:var(--gold); font-family:'Barlow Condensed'; font-weight:600;}
+.reg-table tbody tr:last-child td{border-bottom:none;}
+.reg-table tbody tr:hover td{background:var(--surface);}
+.table-caption{
+font-family:'Barlow Condensed'; font-size:0.85rem; color:var(--ink-dim); margin-top:12px; max-width:680px;
+}
+
+.warning-box{
+margin-top:24px; padding:20px 22px; background:var(--surface-2); border-left:3px solid var(--gold);
+color:var(--ink-dim); font-size:0.92rem;
+}
+.warning-box strong{color:var(--ink);}
+
+/* ===== BACK TO TOP ===== */
+.back-top{
+position:fixed; bottom:26px; right:26px; z-index:60;
+width:46px; height:46px; border-radius:50%; background:var(--red); color:var(--ink);
+display:flex; align-items:center; justify-content:center; text-decoration:none;
+font-size:1.1rem; opacity:0; pointer-events:none; transform:translateY(10px);
+transition:opacity 0.25s, transform 0.25s;
+border:1px solid var(--red);
+}
+.back-top.visible{opacity:1; pointer-events:auto; transform:translateY(0);}
+.back-top:hover{background:transparent; color:var(--red);}
+
+/* ===== FOOTER ===== */
+.cta-final{padding:72px 0; text-align:center;}
+.cta-final h2{font-size:clamp(1.8rem,5vw,2.6rem); margin-bottom:16px;}
+.cta-final p{color:var(--ink-dim); max-width:480px; margin:0 auto 28px;}
+.btn{
+display:inline-flex; align-items:center; gap:10px;
+font-family:'Barlow Condensed', sans-serif;
+font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+font-size:0.92rem;
+padding:14px 26px;
+text-decoration:none;
+border:1px solid var(--ink);
+transition:all 0.2s;
+}
+.btn-primary{background:var(--red); border-color:var(--red); color:var(--ink);}
+.btn-primary:hover{background:transparent; color:var(--red);}
+.btn-ghost{color:var(--ink);}
+.btn-ghost:hover{background:var(--ink); color:var(--bg);}
+.cta-actions{display:flex; flex-wrap:wrap; gap:14px; justify-content:center;}
+
+footer{
+border-top:1px solid var(--line); padding:32px 0; text-align:center;
+color:var(--ink-dim); font-family:'Barlow Condensed'; letter-spacing:0.05em; font-size:0.85rem;
+}
+
+::selection{background:var(--red); color:var(--ink);}
+</style>
+</head>
+<body>
+
+<header>
+<div class="nav wrap">
+<a class="logo" href="index.html">PFN<span>.</span></a>
+<a class="back-link" href="index.html">← Volver a PFN</a>
+</div>
+<div class="quicknav wrap">
+<a href="#general">Reglas generales</a>
+<a href="#disciplinas">Disciplinas</a>
+<a href="#jueces">Jueces</a>
+<a href="#pesaje">Categorías de peso</a>
+<a href="#logistica">Logística y médico</a>
+</div>
+</header>
+
+<section class="reg-hero">
+<div class="wrap reg-hero-inner">
+<span class="eyebrow reveal">Pasto Fight Night</span>
+<h1 class="reveal delay-1">Reglamento oficial de PFN.</h1>
+<p class="reveal delay-2">Este documento contiene las directrices, normativas y reglamentos deportivos oficiales para los atletas y esquinas que participarán en las veladas de Pasto Fight Night. Al ser un evento multi-disciplina (Boxeo, Kick Boxing, Grappling y Combat Jiu-Jitsu), solicitamos leer con extrema atención tanto las reglas comunes como el apartado específico de cada modalidad.</p>
+<div class="meta-row reveal delay-3">
+<div><strong>4</strong><span>Disciplinas</span></div>
+<div><strong>6x6</strong><span>Tatami sin cuerdas</span></div>
+<div><strong>3</strong><span>Jueces por combate</span></div>
+</div>
+</div>
+</section>
+
+<section class="reg-section" id="general">
+<div class="wrap">
+<span class="section-num reveal">01 · Reglas generales</span>
+<h2 class="reveal">Reglas generales unificadas</h2>
+<p class="intro reveal">Aplica para todos los peleadores, sin importar la disciplina en la que compitan.</p>
+
+<div class="reg-block reveal">
+<h3>1.1 El área de lucha — Tatami 6x6 sin cuerdas</h3>
+<p>El evento se desarrollará en un área plana de tatami/lona de 6 metros de ancho por 6 metros de largo (6x6 m), completamente sin cuerdas ni jaula. Al no existir barreras físicas, la transición entre el área de combate y los límites exteriores se gestiona bajo las siguientes reglas:</p>
+<ul>
+<li><strong>Área de combate (centro):</strong> el espacio principal donde debe transcurrir la pelea.</li>
+<li><strong>Zona de seguridad:</strong> el borde perimetral que delimita el fin de los 6x6 metros.</li>
+<li><strong>Gestión de salidas en Boxeo y Kick Boxing:</strong> si un peleador sale del área por movimiento natural de evasión o empuje del combate, el réferi detendrá la acción con la voz de "STOP/PARE", ordenará separación y reiniciará a ambos competidores en el centro exacto. Los empujones deliberados o el uso del cuerpo para "echar" al rival fuera del área con el fin de evitar el combate serán penalizados con advertencia o descuento de puntos.</li>
+<li><strong>Gestión de salidas en Grappling y Combat Jiu-Jitsu:</strong> si la acción sale de los límites de 6x6, el réferi detendrá el combate. Si un competidor tenía una posición de control dominante clara (mount, back control) o un intento de sumisión encajado, los competidores serán reubicados en el centro del tatami respetando exactamente la misma posición en el suelo. Si no había posición clara, se reinicia de pie en el centro.</li>
+</ul>
+</div>
+
+<div class="reg-block reveal">
+<h3>1.2 El bono de control de centro</h3>
+<p>Criterio especial para jueces, pensado para incentivar el espectáculo y la combatividad en un espacio dinámico de 6x6:</p>
+<ul>
+<li>Se establece un bono de apreciación para los jueces que evaluará positivamente al atleta que muestre una intención clara de conservar el combate en el centro del tatami (presión hacia adelante, dominio del eje central y evitar salir constantemente del área de seguridad).</li>
+<li>Este dominio del centro sumará puntos decisivos en las tarjetas de los jueces en caso de rounds muy cerrados o decisiones divididas, en las modalidades de Boxeo, Kick Boxing y Grappling.</li>
+</ul>
+</div>
+
+<div class="reg-block reveal">
+<h3>1.3 Proceso de pesaje oficial</h3>
+<ul>
+<li>El pesaje se realizará 24 horas antes del evento.</li>
+<li>Se establece una tolerancia máxima acordada por contrato (generalmente 500 gramos).</li>
+<li>No cumplir con el peso estipulado generará sanciones, como no competir en el evento y/o descartar al atleta para futuras competencias.</li>
+</ul>
+</div>
+
+<div class="reg-block reveal">
+<h3>1.4 Conducta y faltas universales — criterio de descalificación</h3>
+<p>Se penalizará severamente cualquier falta de respeto al cuerpo arbitral, al oponente, a las esquinas o al público. Las siguientes acciones están estrictamente prohibidas en todas las disciplinas:</p>
+<ul>
+<li>Piquetes de ojos, mordiscos, tirones de cabello o introducir dedos en orificios (hacer gancho).</li>
+<li>Golpes directos a la columna vertebral, la nuca o la tráquea.</li>
+<li>Golpes o presión intencional a la ingle.</li>
+<li>Atacar al rival después de que el réferi ordene detener la acción, durante los descansos o cuando el oponente esté visiblemente fuera de combate.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="reg-section" id="disciplinas">
+<div class="wrap">
+<span class="section-num reveal">02 · Especificaciones por disciplina</span>
+<h2 class="reveal">Cuatro disciplinas, cuatro reglamentos.</h2>
+<p class="intro reveal">Cada modalidad tiene su propia duración, protección obligatoria, técnicas permitidas y faltas específicas.</p>
+
+<div class="disc-grid">
+
+<div class="disc-card reveal">
+<div class="disc-icon">
+<svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="1" y="13" width="9" height="6" rx="1" fill="#A6A6AB"/>
+<rect x="22" y="13" width="9" height="6" rx="1" fill="#A6A6AB"/>
+<rect x="9" y="9" width="14" height="14" rx="2" fill="#C4302B"/>
+<rect x="13" y="13" width="6" height="6" rx="1" fill="#0A0A0B"/>
+</svg>
+</div>
+<span class="disc-tag">A. Boxeo</span>
+<h3>Reglamento unificado</h3>
+<div class="disc-meta">
+<span>3 rounds × 3 min</span>
+<span>1 min descanso</span>
+<span>Guantes 12 oz</span>
+<span>Descalzo</span>
+</div>
+<h4>Protección obligatoria</h4>
+<p>Shorts de boxeo, protector bucal, concha/protector inguinal, vendaje amateur y guantes de 12 oz. Al ser en tatami, los peleadores competirán descalzos (no se permiten botas de boxeo tradicionales, para cuidar la superficie de 6x6).</p>
+<h4>Técnicas permitidas</h4>
+<p>Únicamente golpes de puño con la zona de los nudillos dirigidos a la parte frontal y lateral de la cabeza y del cuerpo (de la cintura hacia arriba).</p>
+<div class="faults">
+<h4>Faltas específicas</h4>
+<p>Golpes con el hombro, codos o antebrazos; golpes con la palma abierta; golpes de giro (backfist). Prohibido cualquier tipo de agarre, amarre prolongado (clinch pasivo) o proyecciones.</p>
+</div>
+</div>
+
+<div class="disc-card reveal delay-1">
+<div class="disc-icon">
+<svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="1" y="13" width="9" height="6" rx="1" fill="#A6A6AB"/>
+<rect x="22" y="13" width="9" height="6" rx="1" fill="#A6A6AB"/>
+<rect x="9" y="9" width="14" height="14" rx="2" fill="#C4302B"/>
+<rect x="13" y="13" width="6" height="6" rx="1" fill="#0A0A0B"/>
+</svg>
+</div>
+<span class="disc-tag">B. Kick Boxing</span>
+<h3>Reglamento estilo K1</h3>
+<div class="disc-meta">
+<span>3 rounds × 3 min</span>
+<span>1 min descanso</span>
+<span>Guantes 12 oz + espinilleras</span>
+<span>Descalzo</span>
+</div>
+<h4>Protección obligatoria</h4>
+<p>Shorts de Kick Boxing o Muay Thai, protector bucal, protector inguinal, guantes de 12 oz y espinilleras. Descalzos.</p>
+<h4>Técnicas permitidas</h4>
+<ul>
+<li>Todo el arsenal de puños del boxeo tradicional.</li>
+<li>Golpes de puño con giro (spinning backfist), válidos si conectan con la zona permitida del guante.</li>
+<li>Patadas a las piernas (low kicks internas y externas), al cuerpo y a la cabeza.</li>
+<li>Rodillazos directos al cuerpo.</li>
+</ul>
+<p><strong>Regla de clinch K1:</strong> el clinch (agarre) está permitido únicamente si es inmediato y ofensivo. El peleador puede agarrar con ambas manos para conectar un solo rodillazo; inmediatamente después del golpe debe soltar al rival. No se permite el clinch prolongado para desgastar o frenar la pelea.</p>
+<div class="faults">
+<h4>Faltas específicas</h4>
+<p>Golpes con el codo, rodillazos a la cara o cabeza, proyecciones de judo, barridos de cadera enteros, agarrar la pierna del rival para caminar con ella o dar más de un paso agarrándola.</p>
+</div>
+</div>
+
+<div class="disc-card reveal delay-2">
+<div class="disc-icon">
+<svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="1" y="13" width="9" height="6" rx="1" fill="#A6A6AB"/>
+<rect x="22" y="13" width="9" height="6" rx="1" fill="#A6A6AB"/>
+<rect x="9" y="9" width="14" height="14" rx="2" fill="#C4302B"/>
+<rect x="13" y="13" width="6" height="6" rx="1" fill="#0A0A0B"/>
+</svg>
+</div>
+<span class="disc-tag">C. Grappling</span>
+<h3>Reglamento estilo CJI</h3>
+<div class="disc-meta">
+<span>3 rounds × 5 min</span>
+<span>No-Gi</span>
+<span>Sin golpeo</span>
+<span>Descalzo</span>
+</div>
+<h4>Vestimenta</h4>
+<p>Modalidad No-Gi. Rashguard (licra) ceñida al cuerpo y shorts de pelea sin bolsillos, cremalleras o botones metálicos. Protector bucal opcional. Sin calzado.</p>
+<h4>Técnicas permitidas</h4>
+<p>Todo tipo de derribos y proyecciones. Estrangulaciones de todo tipo (con brazos o piernas) y llaves a las articulaciones (hombros, codos, muñecas). Todas las llaves de pierna están permitidas (heel hooks o ganchos de talón internos/externos, llaves de rodilla y toe holds).</p>
+<div class="faults">
+<h4>Faltas específicas</h4>
+<p>Absolutamente ningún tipo de golpeo. Está estrictamente prohibido el slam (azotar fuertemente al rival contra el piso) si este se encuentra en una posición elevada desde la guardia o un triángulo, a menos que la levantada sea fluida y el réferi considere que no pone en riesgo cervical severo al atleta. No se permite torcer dedos individuales (se deben agarrar mínimo 4 dedos juntos).</p>
+</div>
+</div>
+
+<div class="disc-card reveal delay-3">
+<div class="disc-icon">
+<svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="1" y="13" width="9" height="6" rx="1" fill="#A6A6AB"/>
+<rect x="22" y="13" width="9" height="6" rx="1" fill="#A6A6AB"/>
+<rect x="9" y="9" width="14" height="14" rx="2" fill="#C4302B"/>
+<rect x="13" y="13" width="6" height="6" rx="1" fill="#0A0A0B"/>
+</svg>
+</div>
+<span class="disc-tag">D. Combat Jiu-Jitsu</span>
+<h3>Reglamento Eddie Bravo, adaptado</h3>
+<div class="disc-meta">
+<span>1 round único × 10 min</span>
+<span>Manos descubiertas</span>
+<span>Golpeo solo en el suelo</span>
+</div>
+<h4>Vestimenta</h4>
+<p>Rashguard y shorts de grappling. Protector bucal e inguinal. Manos completamente descubiertas (sin guantes ni vendajes rígidos).</p>
+<h4>Dinámica de combate — de pie vs. suelo</h4>
+<ul>
+<li><strong>Mientras estén de pie:</strong> es puramente grappling. No se permite ningún tipo de golpeo.</li>
+<li><strong>En el suelo:</strong> se considera que el combate está en el suelo cuando las rodillas, cadera o manos de un competidor tocan la lona de forma continua. Una vez en el piso, se activa el golpeo.</li>
+</ul>
+<h4>Golpeo permitido</h4>
+<p>Única y exclusivamente golpes con la palma de la mano abierta (slaps / galletas) en el rostro y cuerpo del oponente. El objetivo es abrir la guardia, propiciar la sumisión o buscar el TKO en el suelo.</p>
+<p><strong>Tiempo purgatorio:</strong> si un competidor permanece de pie y se niega activamente a entrar al suelo a la guardia del rival que está abajo, el réferi iniciará una cuenta de 30 segundos de advertencia para obligarlo a bajar o penalizarlo por pasividad.</p>
+<p><strong>Definición por empate:</strong> si transcurren los 10 minutos sin sumisión, KO o TKO, el ganador será determinado por la decisión de los 3 jueces puntuadores bajo los criterios oficiales de evaluación. Se elimina el tiempo extra (overtime EBI).</p>
+<div class="faults">
+<h4>Faltas específicas</h4>
+<p>Golpes con el puño cerrado, codazos, rodillazos, patadas, o intentar golpear con la palma estando ambos de pie.</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="reg-section" id="jueces">
+<div class="wrap">
+<span class="section-num reveal">03 · Evaluación</span>
+<h2 class="reveal">Sistema de evaluación y jueces</h2>
+<div class="reg-block reveal">
+<h3>Boxeo y Kick Boxing</h3>
+<p>Puntuación tradicional mediante el sistema de 10 puntos obligatorios por round (10-9, 10-8). Los jueces evalúan: daño efectivo e impacto, combinaciones conectadas, agresividad efectiva y el control de centro (bono de centro).</p>
+</div>
+<div class="reg-block reveal delay-1">
+<h3>Grappling (estilo CJI) y Combat Jiu-Jitsu</h3>
+<p>Los jueces evalúan y dan un ganador round por round (sistema 10-9). El criterio principal de evaluación es la búsqueda activa y real de la sumisión (intentos encajados y peligro real), seguido por la agresividad posicional y la iniciativa de mantener el combate en el centro del tatami.</p>
+</div>
+</div>
+</section>
+
+<section class="reg-section" id="pesaje">
+<div class="wrap">
+<span class="section-num reveal">04 · Categorías de peso</span>
+<h2 class="reveal">Categorías de peso oficiales y tolerancia</h2>
+<p class="intro reveal">Para garantizar la equidad competitiva y la seguridad de los competidores, todos los atletas deben registrarse, dar el peso y competir dentro de los límites estrictos de su categoría seleccionada. PFN cuenta con dos estructuras de peso diferenciadas según la naturaleza del combate (con golpeo o agarre puro).</p>
+
+<div class="reg-block reveal">
+<h3>4.1 Protocolo de pesaje y consecuencias por incumplimiento</h3>
+<ul>
+<li><strong>Fecha y hora:</strong> el pesaje oficial se realizará exactamente 24 horas antes del inicio del evento.</li>
+<li><strong>Tolerancia de peso:</strong> se establece una tolerancia máxima de 500 gramos sobre el límite de la categoría pactada. No se otorgará tolerancia adicional bajo ninguna circunstancia.</li>
+</ul>
+<div class="warning-box">
+<strong>Si un competidor supera el límite de peso permitido (incluida la tolerancia):</strong>
+<ul style="margin-top:10px;">
+<li>Se le otorgará un plazo de una (1) hora para realizar un segundo intento en la báscula oficial.</li>
+<li>Si tras el segundo intento continúa excedido, el atleta quedará automáticamente descalificado del torneo y su oponente avanzará o ganará el combate por Walkover (W.O.).</li>
+<li><strong>Excepción por acuerdo:</strong> únicamente si el rival y su esquina están de acuerdo, el combate podrá realizarse bajo la modalidad de Combate de Exhibición (No Oficial) — el resultado no sumará para el récord oficial del torneo ni clasificará al infractor a las siguientes rondas.</li>
+<li>El atleta que incurra en fallar en el pesaje oficial no será tenido en cuenta para nuevas veladas del evento.</li>
+</ul>
+</div>
+</div>
+
+<div class="reg-block reveal">
+<h3>4.2 Disciplinas con golpeo — Boxeo, Kick Boxing K1 y Combat Jiu-Jitsu</h3>
+<p>Debido a la presencia de golpeo (incluyendo golpes de palma abierta en el suelo), los atletas de Combat Jiu-Jitsu se rigen estrictamente bajo esta tabla, para garantizar márgenes de peso más cerrados y seguros.</p>
+<div class="table-scroll">
+<table class="reg-table">
+<thead>
+<tr><th>Categoría de peso</th><th>Nombre</th><th>Límite</th></tr>
+</thead>
+<tbody>
+<tr><td>Peso Ligero</td><td>Straw</td><td>Hasta 51 kg</td></tr>
+<tr><td>Peso Gallo</td><td>Rooster</td><td>Hasta 54 kg</td></tr>
+<tr><td>Peso Pluma</td><td>Feather</td><td>Hasta 57 kg</td></tr>
+<tr><td>Peso Ligero</td><td>Light</td><td>Hasta 60 kg</td></tr>
+<tr><td>Peso Ligero Welter</td><td>Light Welter</td><td>Hasta 63.5 kg</td></tr>
+<tr><td>Peso Welter</td><td>Welter</td><td>Hasta 67 kg</td></tr>
+<tr><td>Peso Super Welter</td><td>Super Welter</td><td>Hasta 71 kg</td></tr>
+<tr><td>Peso Medio</td><td>Middle</td><td>Hasta 75 kg</td></tr>
+<tr><td>Peso Medio-Pesado</td><td>Medium Heavy</td><td>Hasta 81 kg</td></tr>
+<tr><td>Peso Pesado</td><td>Heavy</td><td>Hasta 86 kg</td></tr>
+<tr><td>Peso Súper Pesado</td><td>Super Heavy</td><td>Hasta 91 kg</td></tr>
+<tr><td>Peso Ultra Pesado</td><td>Ultra Heavy</td><td>Desde 91 kg</td></tr>
+<tr><td>Femenino</td><td>Female</td><td>Categoría única / por acordar</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="reg-block reveal">
+<h3>4.3 Disciplina de agarre puro — Grappling No-Gi / Estilo CJI</h3>
+<p>Esta tabla se aplica exclusivamente a los competidores de Grappling No-Gi, donde está completamente prohibido cualquier tipo de golpeo.</p>
+<div class="table-scroll">
+<table class="reg-table">
+<thead>
+<tr><th>Categoría de peso</th><th>Nombre</th><th>Límite</th></tr>
+</thead>
+<tbody>
+<tr><td>Peso Gallo</td><td>Rooster</td><td>Hasta 57 kg</td></tr>
+<tr><td>Peso Pluma Ligero</td><td>Light Feather</td><td>Hasta 64 kg</td></tr>
+<tr><td>Peso Pluma</td><td>Feather</td><td>Hasta 70 kg</td></tr>
+<tr><td>Peso Ligero</td><td>Light</td><td>Hasta 76 kg</td></tr>
+<tr><td>Peso Mediano</td><td>Middle</td><td>Hasta 83 kg</td></tr>
+<tr><td>Peso Medio-Pesado</td><td>Medium Heavy</td><td>Hasta 88 kg</td></tr>
+<tr><td>Peso Pesado</td><td>Heavy</td><td>Hasta 94 kg</td></tr>
+<tr><td>Peso Súper Pesado</td><td>Super Heavy</td><td>Hasta 100 kg</td></tr>
+<tr><td>Peso Ultra Pesado</td><td>Ultra Heavy</td><td>Sin límite</td></tr>
+<tr><td>Femenino</td><td>Female</td><td>Categoría única / por acordar</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+
+<section class="reg-section" id="logistica" style="border-bottom:none;">
+<div class="wrap">
+<span class="section-num reveal">05 · Logística y médico</span>
+<h2 class="reveal">Reglamentación logística, médica y de esquinas</h2>
+
+<div class="reg-block reveal">
+<h3>5.1 Higiene y presentación obligatoria</h3>
+<ul>
+<li>Las uñas de manos y pies deben estar perfectamente cortadas al ras antes de que el peleador suba al tatami.</li>
+<li>El cabello largo debe estar recogido de forma segura (ej. trenzas) y no se permite el uso de geles, aceites, cremas corporales o lociones antes del combate (para evitar que la piel esté resbaladiza de manera fraudulenta).</li>
+</ul>
+</div>
+
+<div class="reg-block reveal delay-1">
+<h3>5.2 Protocolo de cortes y sangrado</h3>
+<ul>
+<li>Ante cualquier sangrado activo, el réferi detendrá la acción para la evaluación del médico del evento.</li>
+<li>El equipo médico tendrá un máximo de dos (2) minutos para detener el sangrado. Si no es posible controlarlo en ese tiempo, el combate finalizará por TKO (detención médica).</li>
+<li>No se permite combatir con sangrado activo bajo ninguna circunstancia. Cualquier mancha de sangre en el tatami de 6x6 m suspenderá la acción de inmediato para la respectiva desinfección del área por parte del personal de logística.</li>
+</ul>
+</div>
+
+<div class="reg-block reveal delay-2">
+<h3>5.3 Normativa para las esquinas (secundantes)</h3>
+<ul>
+<li>Cada atleta podrá contar con un máximo de dos (2) personas en su esquina.</li>
+<li>Las esquinas deben permanecer sentadas en el área asignada. Queda prohibido invadir el tatami de 6x6 m durante el round o dirigirse de manera soez a los jueces, oficiales o rivales.</li>
+<li>Para detener el combate en favor de la salud de su atleta, la esquina debe lanzar una toalla física al centro del tatami o gritar fuertemente "¡PARE!" al réferi central.</li>
+</ul>
+</div>
+
+<div class="reg-block reveal delay-3">
+<h3>5.4 Detención médica accidental</h3>
+<p>Si un combate se detiene debido a una lesión provocada por un golpe ilegal accidental (ej. un cabezazo accidental en Kick Boxing, o un golpe con puño cerrado en Combat Jiu-Jitsu):</p>
+<ul>
+<li>Si ocurre antes de terminar el round 1 (o antes de los 5 minutos en CJJ): se declara No Contest (combate sin decisión).</li>
+<li>Si ocurre después de iniciar el round 2: se irá a las tarjetas de los jueces puntuadores para realizar una decisión técnica sumando los puntos acumulados hasta ese instante.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="cta-final">
+<div class="wrap">
+<span class="eyebrow reveal">¿Todo claro?</span>
+<h2 class="reveal" style="margin-top:14px;">Ya conoces las reglas.<br>Ahora inscríbete.</h2>
+<p class="reveal">Llena tu hoja de vida de peleador y elige la disciplina en la que quieres competir.</p>
+<div class="cta-actions reveal">
+<a class="btn btn-primary" href="https://sistema.narinoexposhow.com/pfn/registro">Inscribirme ahora</a>
+<a class="btn btn-ghost" href="index.html">Volver a PFN</a>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="wrap">PFN — Promotora de Artes Marciales Mixtas</div>
+</footer>
+
+<a href="#" class="back-top" id="backTop" aria-label="Volver arriba">↑</a>
+
+<script>
+(function(){
+var reveals = document.querySelectorAll('.reveal');
+var io = new IntersectionObserver(function(entries){
+entries.forEach(function(entry){
+if(entry.isIntersecting){
+entry.target.classList.add('visible');
+io.unobserve(entry.target);
+}
+});
+}, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+reveals.forEach(function(el){ io.observe(el); });
+
+var backTop = document.getElementById('backTop');
+window.addEventListener('scroll', function(){
+if(window.scrollY > 480){ backTop.classList.add('visible'); }
+else{ backTop.classList.remove('visible'); }
+});
+})();
+</script>
+
+</body>
+</html>
